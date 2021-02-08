@@ -120,7 +120,7 @@ main {padding: 3vw; display: block; overflow: hidden; width: 80vw; margin: auto;
 
 article.product {
 	display: grid;
-	griid-template-columns: 60% 40%;
+	grid-template-columns: 60% 40%;
 	grid-template-areas: "img details"
 	"description description"
 	"reviews reviews"
