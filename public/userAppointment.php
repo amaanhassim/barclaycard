@@ -63,6 +63,9 @@ $content = '
 ';
    require '../templates/layout.html.php';
 }
+
+
+
 if (isset($_SESSION['access_level' == 1 ])){
 
     $query1 = $pdo->prepare('SELECT * FROM users');
@@ -125,6 +128,9 @@ $content = '
 ';
    require '../templates/layout.html.php';
 }
+
+
+
 else{
     $content = '
     <h3> Please Login or register to Book a Appointment </h3>
