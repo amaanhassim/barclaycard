@@ -12,15 +12,34 @@ if(isset($_POST['service_name'])&&isset($_POST['service_desc'])&&isset($_POST['s
         $stmt->execute($values);
         echo "Service Updated";
     } else {
+        $img=null;
         if(isset($_FILES['service_image'])){
-            $target_file = "../uploads/" . basename($_FILES['service_image']['name']);
+            $target_file = "/uploads/" . basename($_FILES['service_image']['name']);
             $target_type = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+            if(getimagesize($_FILES['service_image']['tmp_name'])){//Check the file is an image by getting the image size
+                if($_FILES['service_image']['size'] > 500000){//Max allowed size
+                    echo "Image too large.";
+                } else {
+                    $allowed_filetypes=array("jpg", "png", "jpeg", "gif");
+                    if(in_array($allowed_filetypes, $target_type)){//check if its an allowed image (filter out bitmaps etc)
+                        if(move_uploaded_file($_FILES['service_image']['tmp_name'], $target_file)){
+                            //Image uploaded
+                            $img=$target_file;
+                        }
+                    } else {
+                        echo "Type not allowed";
+                    }
+                }
+            } else {
+                echo "File is not an image.";
+            }
         }
-        $stmt = $GLOBALS['pdo']->prepare('INSERT INTO services (service_name, service_desc, service_price) VALUES (:service_name, :service_desc, :service_price)');
+        $stmt = $GLOBALS['pdo']->prepare('INSERT INTO services (service_name, service_desc, service_price, service_image) VALUES (:service_name, :service_desc, :service_price, :service_image)');
         $values = [
             'service_name' => $_POST['service_name'],
             'service_desc' => $_POST['service_desc'],
-            'service_price' => $_POST['service_price']
+            'service_price' => $_POST['service_price'],
+            'service_image' => $img
         ];
         $stmt->execute($values);
         echo "Service Added";
