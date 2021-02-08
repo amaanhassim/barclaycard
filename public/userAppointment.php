@@ -1,7 +1,6 @@
 <?php
-session_start()
-require '..functions/db.php';
-
+session_start(); 
+require '../functions/db.php';
 if (isset($_SESSION['0'])){
 
     $query = $pdo->prepare('SELECT location FROM locations');
@@ -20,20 +19,23 @@ if (isset($_SESSION['0'])){
     } //print each value from the table in the desired layout
 
 
-    if(isset($_POST['submit'])){
-        $appointment = $pdo->prepare('UPDATE appointmenst SET name = :update1 WHERE name = :category2 ');
+    if (isset($_POST['submit'])) {
+        $appointment = $pdo->prepare('INSERT INTO appointments (name, timeSlot) VALUES (:name, :time ) ');
         $catNName = [
             'name' => $_POST['name'],
             'time' => $_POST['timeSlot']
         ];
         $upCat->execute($catNName);
-
-
+    }
 
 $content = '
     <form action="article.php" method="post">
+
                     <label> location </labe> <select name = "location">
                     '. $location .'
+                    </select>
+                    <label> Time </labe> <select name = "timeSlot">
+                    '. $time .'
                     </select>
                     <label> Time Slot </labe> <input type="text" name = "timeSlot"/>
                     <input type="submit" name="submit3" value="Submit" style="margin-left: 0px"/>
