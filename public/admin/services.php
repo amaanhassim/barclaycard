@@ -22,7 +22,7 @@ if(isset($_POST['service_name'])&&isset($_POST['service_desc'])&&isset($_POST['s
         echo "Service Added";
     }
 }
-if($_GET['delid']){
+if(isset($_GET['delid'])){
     $stmt = $GLOBALS['pdo']->prepare('DELETE FROM services WHERE id=:id');
         $values = [
             'id' => $_GET['delid']
