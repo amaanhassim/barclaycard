@@ -9,6 +9,6 @@
 
 						<label for="de">Description:</label> <input id="de" type="text" name="des"/>
 
-						<input type="submit" name="submit" value="submit" />
+						<input type="submit" name="submit" value="submit" value="" />
 
 					</form>
