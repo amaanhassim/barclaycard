@@ -187,6 +187,7 @@ main form label, main form input {
 	margin-left: 2vw;
 }
 
+
 .bid {
 	margin-top: 2em;
 	padding: 0;
@@ -207,4 +208,10 @@ main form input[type=submit] {
 	border: 0;
 
 }
+
+.vprod{
+	margin-left:inherit
+	
+}
+
 

@@ -12,8 +12,7 @@ $products = $stmt->fetchAll();
 
 $templatevars = [
     'products' => $products,
-    'location' => 'editproduct.php',
-    'action' => 'Edit'
+    'location' => 'viewproduct.php'
 ];
 
 $content = loadtemplate('../templates/listprod.html.php',$templatevars);
