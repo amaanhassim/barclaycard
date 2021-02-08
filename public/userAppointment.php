@@ -29,7 +29,7 @@ if (isset($_SESSION['access_level' == 0 ])){
     }
 
     if (isset($_POST['submit'])) {
-        $appointment = $pdo->prepare('INSERT INTO appointments (name, timeSlot) VALUES (:name, :time ) ');
+        $appointment = $pdo->prepare('INSERT INTO appointments (name, timeSlot, location, service) VALUES (:name, :time, :location, :service ) ');
         
         $values1 = [
             'name' => $_SESSION['idusers'],
@@ -91,7 +91,7 @@ if (isset($_SESSION['access_level' == 1 ])){
     }
 
     if (isset($_POST['submit'])) {
-        $appointment = $pdo->prepare('INSERT INTO appointments (name, timeSlot) VALUES (:name, :time ) ');
+        $appointment = $pdo->prepare('INSERT INTO appointments (name, timeSlot, location, service) VALUES (:name, :time, :location, :service ) ');
         
         $values1 = [
             'name' => $_POST['name'],
