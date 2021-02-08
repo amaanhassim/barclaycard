@@ -1,7 +1,7 @@
 <?php
 
-require '../../functions/loadtemplate.php';
-require '../../functions/amdbconnection.php';
+require '../functions/loadtemplate.php';
+require '../functions/amdbconnection.php';
 session_start();
 
 $stmt = $pdo2->prepare('SELECT * FROM products');
@@ -16,6 +16,8 @@ $templatevars = [
     'action' => 'Edit'
 ];
 
-$content = loadtemplate('../../templates/listprod.html.php',$templatevars);
+$content = loadtemplate('../templates/listprod.html.php',$templatevars);
+
+require '../templates/layout.html.php';
 
 ?>

@@ -9,9 +9,9 @@
     <li>
         <img src="product.png" alt="product name">
         <article>
-            <h2><?=$products['product name']?></h2>
-            <p><?=$products['des']?></p>
-            <p class="price">Price: £<?=$products['price']?></p>
+            <h2><?=$row['productname']?></h2>
+            <p><?=$row['des']?></p>
+            <p class="price">Price: £<?=$row['productprice']?></p>
             <a href="#" class="more">More &gt;&gt;</a>
         </article>
     </li>
