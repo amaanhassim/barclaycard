@@ -13,8 +13,13 @@
 						<h2><?=$s['service_name']?></h2>
 						<p class="price">Price: £<?=$s['service_price']?></p>
                         <p class="description"><?=$s['service_desc']?></p>
-                        <button><a href='editservice.php?id=<?=$s['id']?>'>Edit</a></button>
-                        <button><a href='services.php?delid=<?=$s['id']?>'>Delete</a></button>
+                        <?php
+                        if(isset($_SESSION['access_level'])){
+                            if($_SESSION['access_level']==1){?>
+                                <button><a href='editservice.php?id=<?=$s['id']?>'>Edit</a></button>
+                                <button><a href='services.php?delid=<?=$s['id']?>'>Delete</a></button>
+                      <?php } 
+                        }?>
 					</section>
 					
 

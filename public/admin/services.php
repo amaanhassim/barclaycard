@@ -12,6 +12,10 @@ if(isset($_POST['service_name'])&&isset($_POST['service_desc'])&&isset($_POST['s
         $stmt->execute($values);
         echo "Service Updated";
     } else {
+        if(isset($_FILES['service_image'])){
+            $target_file = "../uploads/" . basename($_FILES['service_image']['name']);
+            $target_type = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        }
         $stmt = $GLOBALS['pdo']->prepare('INSERT INTO services (service_name, service_desc, service_price) VALUES (:service_name, :service_desc, :service_price)');
         $values = [
             'service_name' => $_POST['service_name'],
