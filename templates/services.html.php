@@ -19,7 +19,7 @@
                                 <button><a href='editservice.php?id=<?=$s['id']?>'>Edit</a></button>
                                 <button><a href='services.php?delid=<?=$s['id']?>'>Delete</a></button>
                       <?php } 
-                        }?>
+                        } else { echo "NO SESSION SET"; } ?>
 					</section>
 					
 
