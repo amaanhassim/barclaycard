@@ -7,6 +7,8 @@
 
                         <label for="pr">Price:</label> <input id="pr" type="text" name="productprice"  value="<?=$pro['productprice']?>" />
 
+						<label for="pr">Stock Amount:</label> <input id="pr" type="text" name="stock"  value="<?=$pro['stock']?>" />
+
 						<label for="de">Description:</label> <input id="de" type="text" name="des"  value="<?=$pro['des']?>"/>
 
                         <input type="hidden" name="id" value=<?=$pro['id']?> />

@@ -18,6 +18,8 @@ if(isset($_POST['submit']))
     // var_dump($values);
 
     $stmt->execute($values);
+
+    header('location: success.php');
 }
 
 $content = loadtemplate('../../templates/addproducts.html.php', []);
