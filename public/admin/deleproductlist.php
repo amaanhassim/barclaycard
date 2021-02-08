@@ -12,7 +12,7 @@ $products = $stmt->fetchAll();
 
 $templatevars = [
     'products' => $products,
-    'location' => '#',
+    'location' => 'deleteproduct.php',
     'action' => 'delete'
 ];
 
