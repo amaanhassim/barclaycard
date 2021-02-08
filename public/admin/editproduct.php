@@ -1,12 +1,12 @@
 <?php
 
 require '../../functions/loadtemplate.php';
-require '../../functions/amdbconnection.php';
+require '../../functions/db.php';
 session_start();
 
 if(isset($_POST['submit']))
 {
-    $up = $pdo2->prepare('UPDATE products SET productname=:productname, productprice=:productprice, des=:des WHERE id=:id');
+    $up = $pdo->prepare('UPDATE products SET productname=:productname, productprice=:productprice, des=:des WHERE id=:id');
 
     $values = [
         'id' => $_POST['id'],
@@ -18,7 +18,7 @@ if(isset($_POST['submit']))
     $up->execute($values);
 }
 
-$stmt = $pdo2->prepare('SELECT * FROM products WHERE id=:id');
+$stmt = $pdo->prepare('SELECT * FROM products WHERE id=:id');
 
 $values = [
     'id' => $_POST['id']

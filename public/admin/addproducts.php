@@ -1,12 +1,12 @@
 <?php
 
 require '../../functions/loadtemplate.php';
-require '../../functions/amdbconnection.php';
+require '../../functions/db.php';
 session_start();
 
 if(isset($_POST['submit']))
 {
-    $stmt = $pdo2->prepare('INSERT INTO products (productname,productprice,des)
+    $stmt = $pdo->prepare('INSERT INTO products (productname,productprice,des)
                             VALUES(:productname, :productprice, :des)');
     
     $values = [

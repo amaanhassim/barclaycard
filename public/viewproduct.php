@@ -1,10 +1,10 @@
 <?php
 
 require '../functions/loadtemplate.php';
-require '../functions/amdbconnection.php';
+require '../functions/db.php';
 session_start();
 
-$stmt = $pdo2->prepare('SELECT * FROM products WHERE id=:id');
+$stmt = $pdo->prepare('SELECT * FROM products WHERE id=:id');
 
 $values = [
     'id' => $_POST['id']
