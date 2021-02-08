@@ -6,14 +6,16 @@ session_start();
 
 if(isset($_POST['submit']))
 {
-    $stmt = $pdo2->prepare('INSERT INTO products(productname,productprice,description)
-                            VALUES(:productname, productprice, description)');
+    $stmt = $pdo2->prepare('INSERT INTO products (productname,productprice,des)
+                            VALUES(:productname, :productprice, :des)');
     
     $values = [
         'productname' => $_POST['productname'],
         'productprice' => $_POST['productprice'],
-        'description' => $_POST['description']
+        'des' => $_POST['des']
     ];
+    var_dump($values);
+
     $stmt->execute($values);
 }
 
