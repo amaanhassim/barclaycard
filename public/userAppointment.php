@@ -9,27 +9,41 @@ if (isset($_SESSION['0'])){
     $query2 = $pdo->prepare('SELECT location FROM locations');
     $query2->execute();
 
-    foreach ($query2 as $data) {
-        $location = $location . '<option> <a href="' . $data['name'] . '"> '. $data['name'] .'</a></option>';
+    foreach ($query2 as $data1) {
+        $location = $location . '<option> <a href="' . $data1['name'] . '"> '. $data1['name'] .'</a></option>';
     } //print each value from the table in the desired layout
  
 
     $query3 = $pdo->prepare('SELECT time FROM timeSlots WHERE avalible == 0 ');
     $query3->execute();
 
-    foreach ($query3 as $data) {
-        $time = $time . '<option> <a href="' . $data['name'] . '"> '. $data['name'] .'</a></option>';
+    foreach ($query3 as $data2) {
+        $time = $time . '<option> <a href="' . $data2['time'] . '"> '. $data2['time'] .'</a></option>';
     } //print each value from the table in the desired layout
 
+    $query4 = $pdo->prepare('SELECT * FROM services');
+    $query4->execute();
+
+    foreach($query4 as $data3){
+        $service = $service . '<option> <a href="' . $data3['service_name'] . '"> '. $data3['service_name'] .'</a></option>';
+    }
 
     if (isset($_POST['submit'])) {
         $appointment = $pdo->prepare('INSERT INTO appointments (name, timeSlot) VALUES (:name, :time ) ');
-        $values = [
+        
+        $values1 = [
             'name' => $_SESSION['idusers'],
             'location' => $_POST['location'],
+            'time' => $_POST['timeSlot'],
+            'service' => $_POST['service']
+        ];
+        $appointment->execute($values1);
+        
+        $time = $pdo->prepare('UPDATE timeSlot SET avalible = "1" WHERE time = :time');
+        $values2 = [
             'time' => $_POST['timeSlot']
         ];
-        $appointment->execute($values);
+        $time->execute($values2);
     }
 
 $content = '
@@ -41,11 +55,18 @@ $content = '
                     <label> Time </labe> <select name = "timeSlot">
                     '. $time .'
                     </select>
-
+                    <label> Service Required </label> <select name = "service">
+                    '. $service .'
                     <input type="submit" name="submit3" value="Submit" style="margin-left: 0px"/>
                 </form>
 
 ';
    require '../templates/layout.html.php';
+}
+else{
+    $content = '
+    <h3> Please Login or register to Book a Appointment </h3>
+';
+require '../templates/layout.html.php';
 }
 ?>
