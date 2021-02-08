@@ -19,7 +19,7 @@ if ( $stm -> rowCount() > 0 ) {
 	$_SESSION['access_level'] = $check_log['access_level'];
 	$_SESSION ['name'] = $check_log['firstname'];
 	// if the details entered match the ones in the database take the user to the index page / home page
-	header('Location: http://barclaycrd.v.je/productpage.php');
+	header('Location:https://barclaycard.v.je/userAppointment.php');
 	} else {
 	     // if the details dont match display this
 		 echo '<h2> Your Details are incorrect! </h2>';
