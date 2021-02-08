@@ -3,12 +3,12 @@
 	<head>
 		<title>ibuy Auctions</title>
 		 <meta charset="UTF-8" />
-		<link rel="stylesheet" href="ibuy.css" />
+		<link rel="stylesheet" href="/ibuy.css" />
 	</head>
 
 	<body>
 		<header>
-			<h1><img class="sherlock" src="logosherlock2.png" alt=""></h1>
+			<h1><img class="sherlock" src="/logosherlock2.png" alt=""></h1>
 
 			<form action="#">
 				<input type="text" name="search" placeholder="Search for anything" />
@@ -32,7 +32,7 @@
 				<li><a href="#">More</a></li> -->
 			</ul>
 		</nav>
-		<img src="images/randombanner.php" alt="Banner" />
+		<img src="/images/randombanner.php" alt="Banner" />
 
 		<main>
 
