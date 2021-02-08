@@ -25,7 +25,7 @@ if (isset($_SESSION['0'])){
     $query4->execute();
 
     foreach($query4 as $data3){
-        $service = $service . '<option> <a href="' . $data['service_name'] . '"> '. $data['service_name'] .'</a></option>';
+        $service = $service . '<option> <a href="' . $data3['service_name'] . '"> '. $data3['service_name'] .'</a></option>';
     }
 
     if (isset($_POST['submit'])) {
@@ -33,7 +33,8 @@ if (isset($_SESSION['0'])){
         $values = [
             'name' => $_SESSION['idusers'],
             'location' => $_POST['location'],
-            'time' => $_POST['timeSlot']
+            'time' => $_POST['timeSlot'],
+            'service' => $_POST['service']
         ];
         $appointment->execute($values);
     }
