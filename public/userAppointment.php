@@ -5,7 +5,7 @@ require '../functions/db.php';
     $query1 = $pdo->prepare('SELECT * FROM users');
     $query1->execute();
 
-    $query2 = $pdo->prepare('SELECT location FROM locations');
+    $query2 = $pdo->prepare('SELECT name FROM locations');
     $query2->execute();
 
     foreach ($query2 as $data1) {
@@ -14,7 +14,7 @@ require '../functions/db.php';
     
 
     $query3 = $pdo->prepare('SELECT time FROM timeSlots WHERE avalible == 0 ');
-    $query3->execute();
+    $query3->execute()
 
     foreach ($query3 as $data2) {
         $time = $time . '<option> <a href="' . $data2['time'] . '"> '. $data2['time'] .'</a></option>';
@@ -89,7 +89,7 @@ if (isset($_SESSION['access_level' == 1 ])){
     $query4->execute();
 
     foreach($query4 as $data3){
-        $service = $service . '<option> <a href="' . $data3['service_name'] . '"> '. $data3['service_name'] .'</a></option>';
+        $service = $service . '<option> <a href="' . $data3['service_name'] . '"> '. $data3['service_name'] . $data3['service_price'] . '</a></option>';
     }
 
     if (isset($_POST['submit'])) {
@@ -108,6 +108,8 @@ if (isset($_SESSION['access_level' == 1 ])){
             'time' => $_POST['timeSlot']
         ];
         $time->execute($values2);
+
+
     }
 
 $content = '
