@@ -2,9 +2,10 @@
 
 require '../functions/loadtemplate.php';
 require '../functions/amdbconnection.php';
+require '../../functions/db.php';
 session_start();
 
-$stmt = $pdo2->prepare('SELECT * FROM products');
+$stmt = $pdo->prepare('SELECT * FROM products');
 
 $stmt->execute();
 
