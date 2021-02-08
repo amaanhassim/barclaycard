@@ -15,7 +15,7 @@ if (isset($_SESSION['access_level' == 0 ])){
  
 
     $query3 = $pdo->prepare('SELECT time FROM timeSlots WHERE avalible == 0 ');
-    $query3->execute()
+    $query3->execute();
 
     foreach ($query3 as $data2) {
         $time = $time . '<option> <a href="' . $data2['time'] . '"> '. $data2['time'] .'</a></option>';
