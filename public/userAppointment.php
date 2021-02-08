@@ -2,6 +2,7 @@
 session_start(); 
 require '../functions/db.php';
 
+if (isset($_SESSION['access_level' == 0 ])){
     $query1 = $pdo->prepare('SELECT * FROM users');
     $query1->execute();
 
@@ -64,8 +65,7 @@ $content = '
 
 
 
-
-if (isset($_SESSION['access_level' == 1 ])){
+/*if (isset($_SESSION['access_level' == 1 ])){
 
     $query1 = $pdo->prepare('SELECT * FROM users');
     $query1->execute();
@@ -127,7 +127,7 @@ $content = '
                 </form>
 
 ';
-   require '../templates/layout.html.php';
+   require '../templates/layout.html.php';*/
 }
 
 
