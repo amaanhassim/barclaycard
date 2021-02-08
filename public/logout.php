@@ -11,5 +11,5 @@ unset ($_SESSION ['name']);
 echo '<h2> Thankyou for visiting</h2>';
 echo '<h3>Return to<a href="#"> Log in </a>page or <a href="#"> Return Home </a> </h3>';
 
-require '../WTF/footer.php';
+
 ?>  
