@@ -1,9 +1,26 @@
-<hr />
-					<h1>Add a service</h1>
 
-					<form action="services.php">
-						<label>Service Name</label> <input type="text" name="service_name"/>
-						<label>Price</label> <input type="text" name="service_price" />
-						<input type="submit" value="Submit" />
 
-					</form>
+
+<h1>Services</h1>
+<h3><a href='addservice.php'>Add a service</a></h3>
+        <?php
+        foreach($services as $s){
+            ?>
+            <article class="product">
+
+					<img src="/product.png" alt="product name">
+					<section class="details">
+						<h2><?=$s['service_name']?></h2>
+						<p class="price">Price: £<?=$s['service_price']?></p>
+                        <p class="description"><?=$s['service_desc']?></p>
+                        <button><a href='editservice.php?id=<?=$s['id']?>'>Edit</a></button>
+                        <button><a href='services.php?delid=<?=$s['id']?>'>Delete</a></button>
+					</section>
+					
+
+					</article>
+        <?php
+        }
+    ?>
+
+			
