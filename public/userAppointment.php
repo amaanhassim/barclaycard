@@ -56,4 +56,10 @@ $content = '
 ';
    require '../templates/layout.html.php';
 }
+else{
+    $content = '
+    <h3> Please Login or register to Book a Appointment </h3>
+';
+require '../templates/layout.html.php';
+}
 ?>
