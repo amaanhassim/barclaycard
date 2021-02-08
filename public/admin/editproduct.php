@@ -18,6 +18,7 @@ if(isset($_POST['submit']))
     ];
 
     $up->execute($values);
+    header('location: success.php');
 }
 
 $stmt = $pdo->prepare('SELECT * FROM products WHERE id=:id');
