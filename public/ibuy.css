@@ -145,6 +145,13 @@ textarea {width: 100%; height: 20em;}
 .reviews ul {
 	list-style-type: none;
 }
+
+.desc{
+	width: 50%;
+	height: 10em;
+	margin-bottom: 20px;
+
+}
 .reviews li{
 	padding-top: 1em;
 	padding-bottom: 1em;

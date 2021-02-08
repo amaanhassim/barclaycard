@@ -1,10 +1,12 @@
 <?php
 
-require '../functions/loadtemplate.php';
+require '../../functions/loadtemplate.php';
 session_start();
 
-$content = loadtemplate('../templates/addproducts.html.php', []);
+if(isset($_POST['']))
 
-require '../templates/layout.html.php';
+$content = loadtemplate('../../templates/addproducts.html.php', []);
+
+require '../../templates/layout.html.php';
 
 ?>

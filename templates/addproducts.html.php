@@ -1,14 +1,11 @@
 <hr />
-					<h1>Sample Form</h1>
+					<h1>Add Product</h1>
 
 					<form action="#">
-						<label>Text box</label> <input type="text" />
-						<label>Another Text box</label> <input type="text" />
-						<label>Another Text box</label> <input type="date" />
-						<label>Another Text box</label> <input type="time" />
-						<input type="checkbox" /> <label>Checkbox</label>
-						<input type="radio" /> <label>Radio</label>
-						<input type="radio" /> <label>Radio</label>
+						<label>Product Name:</label> <input type="text" />
+                        <label>Price:</label> <input type="text" name="text"/>
+						<label>Description:</label> <textarea class="desc"></textarea>
+                        
 						<input type="submit" value="Submit" />
 
 					</form>
