@@ -39,7 +39,7 @@ if (isset($_SESSION['0'])){
         ];
         $appointment->execute($values1);
         
-        $time = $pdo->prepare('UPDATE timeSlot SET avalible = "1" WHERE time = :time');
+        $time = $pdo->prepare('UPDATE timeSlot SET avalible == "1" WHERE time = :time');
         $values2 = [
             'time' => $_POST['timeSlot']
         ];
