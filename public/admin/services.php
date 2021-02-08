@@ -1,5 +1,4 @@
 <?php
-session_start(); 
 require '../../functions/db.php';
 if(isset($_POST['service_name'])&&isset($_POST['service_desc'])&&isset($_POST['service_price'])){
     if(isset($_GET['edit'])){
@@ -11,9 +10,8 @@ if(isset($_POST['service_name'])&&isset($_POST['service_desc'])&&isset($_POST['s
             'id' => $_GET['edit']
         ];
         $stmt->execute($values);
-        echo "Service Updated";        
+        echo "Service Updated";
     } else {
-        
         $stmt = $GLOBALS['pdo']->prepare('INSERT INTO services (service_name, service_desc, service_price) VALUES (:service_name, :service_desc, :service_price)');
         $values = [
             'service_name' => $_POST['service_name'],

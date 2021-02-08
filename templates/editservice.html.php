@@ -5,6 +5,7 @@
 						<label>Service Name</label> <input type="text" name="service_name" value="<?=$service['service_name']?>"/>
 						<label>Description</label> <input type="text" name="service_desc" value="<?=$service['service_desc']?>" />
 						<label>Price (£)</label> <input type="text" name="service_price" value="<?=$service['service_price']?>"/>
+						<label>Image</label> <input type="file" name="image">
 						<input type="submit" value="Submit" />
 
 					</form>
