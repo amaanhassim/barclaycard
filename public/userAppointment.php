@@ -24,12 +24,12 @@ if (isset($_SESSION['0'])){
 
     if (isset($_POST['submit'])) {
         $appointment = $pdo->prepare('INSERT INTO appointments (name, timeSlot) VALUES (:name, :time ) ');
-        $catNName = [
+        $values = [
             'name' => $_SESSION['idusers'],
             'location' => $_POST['location'],
             'time' => $_POST['timeSlot']
         ];
-        $upCat->execute($catNName);
+        $appointment->execute($values);
     }
 
 $content = '
@@ -41,11 +41,11 @@ $content = '
                     <label> Time </labe> <select name = "timeSlot">
                     '. $time .'
                     </select>
-                    <label> Time Slot </labe> <input type="text" name = "timeSlot"/>
+
                     <input type="submit" name="submit3" value="Submit" style="margin-left: 0px"/>
                 </form>
 
 ';
-
+   require '../templates/layout.html.php';
 }
 ?>
