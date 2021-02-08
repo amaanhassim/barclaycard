@@ -5,7 +5,7 @@ require '../functions/db.php';
     $query1 = $pdo->prepare('SELECT * FROM users');
     $query1->execute();
 
-    $query2 = $pdo->prepare('SELECT name FROM locations');
+    $query2 = $pdo->prepare('SELECT location FROM locations');
     $query2->execute();
 
     foreach ($query2 as $data1) {
