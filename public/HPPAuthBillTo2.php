@@ -19,9 +19,9 @@
 	$bill_to_email = $_POST['bill_to_email'];
 	$bill_to_forename = $_POST['bill_to_forename'];
 	$bill_to_surname = $_POST['bill_to_surname'];
-	$SECRET_KEY = "*enter your secret_key*";
+	$SECRET_KEY = "1496242a70fa4b2c8a79a7c1dcb2f3fe053b579b490c467dac2e5d722efef03079e9c9611474488fbc8132fbd7cba8cadd2b74b9786e43eeaef86aa666f40383ad1d254b4daa46fb9b3ab383c8f2fa409e39ea6b673a4285adfbdf4227ca6c9ae4e54abd108444658808e3d6b98270f9d2d11deca0c348278b77522d7f92c6ee";
 	
-	define ('SECRET_KEY', '*enter your secret_key*');
+	define ('SECRET_KEY', '1496242a70fa4b2c8a79a7c1dcb2f3fe053b579b490c467dac2e5d722efef03079e9c9611474488fbc8132fbd7cba8cadd2b74b9786e43eeaef86aa666f40383ad1d254b4daa46fb9b3ab383c8f2fa409e39ea6b673a4285adfbdf4227ca6c9ae4e54abd108444658808e3d6b98270f9d2d11deca0c348278b77522d7f92c6ee');
 	
 	foreach($_REQUEST as $parameter_name => $parameter_value) {
         $params[$parameter_name] = $parameter_value;
