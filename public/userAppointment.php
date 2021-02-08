@@ -30,13 +30,20 @@ if (isset($_SESSION['0'])){
 
     if (isset($_POST['submit'])) {
         $appointment = $pdo->prepare('INSERT INTO appointments (name, timeSlot) VALUES (:name, :time ) ');
-        $values = [
+        
+        $values1 = [
             'name' => $_SESSION['idusers'],
             'location' => $_POST['location'],
             'time' => $_POST['timeSlot'],
             'service' => $_POST['service']
         ];
-        $appointment->execute($values);
+        $appointment->execute($values1);
+        
+        $time = $pdo->prepare('UPDATE timeSlot SET avalible = "1" WHERE time = :time');
+        $values2 = [
+            'time' => $_POST['timeSlot']
+        ];
+        $time->execute($values2);
     }
 
 $content = '
