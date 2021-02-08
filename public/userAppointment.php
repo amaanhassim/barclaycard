@@ -47,7 +47,7 @@ if (isset($_SESSION['access_level' == 0 ])){
     }
 
 $content = '
-    <form action="article.php" method="post">
+    <form action="userAppointment.php" method="post">
                     <label Name </label> ' . $_SESSION['idusers']  . '
                     <label> location </labe> <select name = "location">
                     '. $location .'
@@ -109,7 +109,7 @@ if (isset($_SESSION['access_level' == 1 ])){
     }
 
 $content = '
-    <form action="article.php" method="post">
+    <form action="userAppointment.php" method="post">
                     <label Name </label> <input type="text" name = "name"/>
                     <label> location </labe> <select name = "location">
                     '. $location .'
