@@ -3,7 +3,10 @@
 require '../../functions/loadtemplate.php';
 session_start();
 
-if(isset($_POST['']))
+if(isset($_POST['submit']))
+{
+    
+}
 
 $content = loadtemplate('../../templates/addproducts.html.php', []);
 
