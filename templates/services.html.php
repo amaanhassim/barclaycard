@@ -5,7 +5,7 @@
 <?php
 if(isset($_SESSION['access_level'])){
                             if($_SESSION['access_level']==1){?>
-<h3><a href='addservice.php'>Add a service</a></h3>
+<h3><a href='/admin/addservice.php'>Add a service</a></h3>
         <?php
                             } }
         foreach($services as $s){
@@ -20,8 +20,8 @@ if(isset($_SESSION['access_level'])){
                         <?php
                         if(isset($_SESSION['access_level'])){
                             if($_SESSION['access_level']==1){?>
-                                <button><a href='editservice.php?id=<?=$s['id']?>'>Edit</a></button>
-                                <button><a href='services.php?delid=<?=$s['id']?>'>Delete</a></button>
+                                <button><a href='/admin/editservice.php?id=<?=$s['id']?>'>Edit</a></button>
+                                <button><a href='/admin/services.php?delid=<?=$s['id']?>'>Delete</a></button>
                       <?php } 
                         } ?>
 					</section>
