@@ -3,18 +3,21 @@ session_start();
 require '../functions/db.php';
 if (isset($_SESSION['0'])){
 
-    $query = $pdo->prepare('SELECT location FROM locations');
-    $query->execute();
+    $query1 = $pdo->prepare('SELECT * FROM users');
+    $query1->execute();
 
-    foreach ($query as $data) {
+    $query2 = $pdo->prepare('SELECT location FROM locations');
+    $query2->execute();
+
+    foreach ($query2 as $data) {
         $location = $location . '<option> <a href="' . $data['name'] . '"> '. $data['name'] .'</a></option>';
     } //print each value from the table in the desired layout
  
 
-    $query = $pdo->prepare('SELECT time FROM timeSlots WHERE avalible == 0 ');
-    $query->execute();
+    $query3 = $pdo->prepare('SELECT time FROM timeSlots WHERE avalible == 0 ');
+    $query3->execute();
 
-    foreach ($query as $data) {
+    foreach ($query3 as $data) {
         $time = $time . '<option> <a href="' . $data['name'] . '"> '. $data['name'] .'</a></option>';
     } //print each value from the table in the desired layout
 
@@ -22,7 +25,8 @@ if (isset($_SESSION['0'])){
     if (isset($_POST['submit'])) {
         $appointment = $pdo->prepare('INSERT INTO appointments (name, timeSlot) VALUES (:name, :time ) ');
         $catNName = [
-            'name' => $_POST['name'],
+            'name' => $_SESSION['idusers'],
+            'location' => $_POST['location'],
             'time' => $_POST['timeSlot']
         ];
         $upCat->execute($catNName);
@@ -30,7 +34,7 @@ if (isset($_SESSION['0'])){
 
 $content = '
     <form action="article.php" method="post">
-
+                    <label Name </label> ' . $_SESSION['idusers']  . '
                     <label> location </labe> <select name = "location">
                     '. $location .'
                     </select>
@@ -42,7 +46,6 @@ $content = '
                 </form>
 
 ';
-
 
 }
 ?>
