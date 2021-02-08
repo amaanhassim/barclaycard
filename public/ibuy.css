@@ -215,3 +215,25 @@ main form input[type=submit] {
 }
 
 
+/* success message */
+
+.success-msg {
+	/* background-color: #DFF2BF; */
+	text-align: center;
+  }
+
+
+.back{
+	background-color: blue;
+	padding: 10px;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+}
+
+.back:hover{
+	cursor: pointer;
+}
+
+
+
