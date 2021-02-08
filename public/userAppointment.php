@@ -1,7 +1,6 @@
 <?php
 session_start(); 
 require '../functions/db.php';
-if (isset($_SESSION['access_level' == 0 ])){
 
     $query1 = $pdo->prepare('SELECT * FROM users');
     $query1->execute();
@@ -10,9 +9,9 @@ if (isset($_SESSION['access_level' == 0 ])){
     $query2->execute();
 
     foreach ($query2 as $data1) {
-        $location = $location . '<option> <a href="' . $data1['name'] . '"> '. $data1['name'] .'</a></option>';
+        $location = $location . '<option> <a href="' . $data1['location'] . '"> '. $data1['location'] .'</a></option>';
     } //print each value from the table in the desired layout
- 
+    
 
     $query3 = $pdo->prepare('SELECT time FROM timeSlots WHERE avalible == 0 ');
     $query3->execute();
@@ -62,7 +61,7 @@ $content = '
 
 ';
    require '../templates/layout.html.php';
-}
+
 
 
 
