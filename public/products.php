@@ -11,7 +11,7 @@ if(isset($_POST['id'])){//Start to buying process
 
     $product = $stmt->fetch();
     
-    $content = loadtemplate('../templates/buyproduct.html.php',[]);
+    $content = loadtemplate('../templates/buyproduct.html.php',['product'=>$product]);
 
 
 } else {

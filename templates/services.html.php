@@ -7,7 +7,7 @@ if(isset($_SESSION['access_level'])){
                             if($_SESSION['access_level']==1){?>
 <h3><a href='addservice.php'>Add a service</a></h3>
         <?php
-                            }
+                            } }
         foreach($services as $s){
             ?>
             <article class="product">

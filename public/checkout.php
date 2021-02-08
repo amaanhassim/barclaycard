@@ -1,10 +1,10 @@
 <html>
 <head>
 <?php
-	$transaction_uuid = uniqid();
-	$locale = "en";
-	$transaction_type = "authorization";
-	$reference_number = uniqid();
+	$transaction_uuid = $_POST['transaction_uuid'];
+	$locale = $_POST['locale'];
+	$transaction_type = $_POST['transaction_type'];
+	$reference_number = $_POST['reference_number'];
 	$amount = $_POST['amount'];
 	$currency = $_POST['currency'];
 	$signed_date_time = $_POST['signed_date_time'];	

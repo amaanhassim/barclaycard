@@ -10,14 +10,44 @@
 					<col width="180">
 					<col width="180">
 					
-					
+					<tr>
+						<td>
+							<input type="hidden" name="transaction_uuid" value="<?php echo uniqid() ?>" >
+						</td>
+					</tr>
 					
 					<tr>
 						<td>
-							amount
+							<input type="hidden" name="locale" value="en">
+						</td>
+					</tr>
+							
+					<tr>
+						<td>
+							<input type="hidden" name="transaction_type" value="authorization">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<input type="hidden" name="reference_number" value="<?php echo uniqid() ?>">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Product
 						</td>
 						<td>
-							<input type="text" name="amount" value="1.00">
+							<input type="text" value="<?=$product['productname'];?>" disabled>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Price
+						</td>
+						<td>
+							<input type="text" value="<?=$product['productprice'];?>" disabled>
+							<input type="hidden" name="amount" value="<?=$product['productprice'];?>">
 						</td>
 					</tr>
 					
@@ -33,18 +63,10 @@
 						</td>
 					</tr>
 					
-					<tr>
-						<td colspan="2">
-							<b>Do not change unless necessary</b>
-						</td>
-					</tr>
 					
 					<tr>
 						<td>
-							access_key
-						</td>
-						<td>
-							<input type="text" name="access_key" value="735fdc98ef443de8bd937e1193dbf0f4">
+							<input type="hidden" name="access_key" value="735fdc98ef443de8bd937e1193dbf0f4">
 						</td>
 					</tr>
 					
@@ -68,55 +90,58 @@
 					
 					<tr>
 						<td>
-							<input type="hidden" name="bill_to_address_city" value="Northampton">
+							Firstname
+						</td>
+						<td>
+							<input type="text" name="bill_to_forename" placeholder="Name">
 						</td>
 					</tr>
 					
-					<tr>		
+					<tr>
+						<td>
+							Surname
+						</td>
+						<td>
+							<input type="text" name="bill_to_surname" placeholder="Surname">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Email
+						</td>
+						<td>
+							<input type="text" name="bill_to_email" placeholder="jbloggs@testemail.co.uk">
+						</td>
+					</tr>
+					<tr>				
+						<td>
+							Address
+						</td>		
+						<td>
+							<input type="text" name="bill_to_address_line1" placeholder="1234 Pavilion Drive">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							City
+						</td>
+						<td>
+							<input type="text" name="bill_to_address_city" placeholder="Northampton">
+						</td>
+					</tr>
+					
+					<tr>	
 						<td>
 							<input type="hidden" name="bill_to_address_country" value="GB">
 						</td>
 					</tr>
 					
-					<tr>						
-						<td>
-							<input type="hidden" name="bill_to_address_line1" value="1234 Pavilion Drive">
-						</td>
-					</tr>
-					
 					<tr>
 						<td>
-							bill_to_address_postal_code
+							Postcode
 						</td>
 						<td>
-							<input type="text" name="bill_to_address_postal_code" value="NN4 7SG">
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							bill_to_email
-						</td>
-						<td>
-							<input type="text" name="bill_to_email" value="jbloggs@testemail.co.uk">
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							bill_to_forename
-						</td>
-						<td>
-							<input type="text" name="bill_to_forename" value="Test">
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							bill_to_surname
-						</td>
-						<td>
-							<input type="text" name="bill_to_surname" value="Name">
+							<input type="text" name="bill_to_address_postal_code" placeholder="NN4 7SG">
 						</td>
 					</tr>
 							
