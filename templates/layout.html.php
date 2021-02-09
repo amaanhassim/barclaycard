@@ -48,7 +48,7 @@
 
 
 			<footer>
-				&copy; 
+				&copy; Shear-Locks Combs 2021
 			</footer>
 		</main>
 	</body>
