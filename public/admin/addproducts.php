@@ -24,6 +24,6 @@ if(isset($_POST['submit']))
 
 $content = loadtemplate('../../templates/addproducts.html.php', []);
 
-require '../../templates/layout.html.php';
+require '../../templates/adminlayout.html.php';
 
 ?>

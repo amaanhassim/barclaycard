@@ -37,7 +37,7 @@ $templatevars=[
 
 $content = loadtemplate('../../templates/editproduct.html.php',$templatevars);
 
-require '../../templates/layout.html.php';
+require '../../templates/adminlayout.html.php';
 
 
 ?>

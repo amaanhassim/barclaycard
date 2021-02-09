@@ -18,7 +18,7 @@ $templatevars = [
 
 $content = loadtemplate('../../templates/listproducts.html.php',$templatevars);
 
-require '../../templates/layout.html.php';
+require '../../templates/adminlayout.html.php';
 
 
 ?>

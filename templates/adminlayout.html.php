@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>ibuy Auctions</title>
 		 <meta charset="UTF-8" />
 		<link rel="stylesheet" href="/ibuy.css" />
 	</head>
@@ -18,9 +18,11 @@
 
 		<nav>
 			<ul>
-                <li><a href="index.php">Product List</a></li>
-                <li><a href="productpage.php">Product Page</a></li>
-                <li><a href="sampleform.php">Sample Form</a></li>
+                <li><a href="addservice.php">Add Service</a></li>
+                <li><a href="services.php">Edit Service</a></li>
+                <li><a href="addproducts.php">Add Product</a></li>
+                <li><a href="listproducts.php">Edit Product</a></li>
+                <li><a href="deleproductlist.php">Delete Product</a></li>
 
 				<!-- <li><a href="#">Home &amp; Garden</a></li>
 				<li><a href="#">Electronics</a></li>
@@ -43,7 +45,7 @@
 
 
 			<footer>
-				&copy; 
+				&copy; ibuy 2019
 			</footer>
 		</main>
 	</body>

@@ -17,6 +17,10 @@
 body { font-family: 'Oxygen-Regular', sans-serif; background-color: #f6f5f4; max-width: 100vw; overflow-x: hidden;}
 h1, h2, h3, h4 { font-weight: normal; }
 
+/* body{
+	background-image: linear-gradient(to bottom, #5E5C5C, #9DC5C3);
+} */
+
 a, a:visited {color: #444;}
 a:hover {text-decoration: underline; color: #222;}
 header {
@@ -233,6 +237,10 @@ main form input[type=submit] {
 
 .back:hover{
 	cursor: pointer;
+}
+
+.editbut{
+	background-color: white;
 }
 
 
