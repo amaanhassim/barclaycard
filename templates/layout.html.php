@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Shear-Locks Combs</title>
+		<title>ibuy Auctions</title>
 		 <meta charset="UTF-8" />
 		<link rel="stylesheet" href="/ibuy.css" />
 		<link
