@@ -9,7 +9,7 @@ unset ($_SESSION ['name']);
 
 <?php
 echo '<h2> Thankyou for visiting</h2>';
-echo '<h3>Return to<a href="login.php"> Log in </a>page or <a href="#"> Return Home </a> </h3>';
+echo '<h3>Return to<a href="login.php"> Log in </a>page or <a href="/services.php"> Return Home </a> </h3>';
 
 
 ?>  
