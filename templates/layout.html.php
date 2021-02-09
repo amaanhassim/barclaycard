@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>Shear-Locks Combs</title>
 		 <meta charset="UTF-8" />
 		<link rel="stylesheet" href="/ibuy.css" />
 	</head>

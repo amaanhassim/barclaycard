@@ -13,7 +13,7 @@ foreach($services as $s){
     <h2><?=$s['service_name']?></h2>
     <p class="price">Price: £<?=$s['service_price']?></p>
     <p class="description"><?=$s['service_desc']?></p>
-    <button class="back"><a class="back" href='#'>Buy</a></button>
+    <button class="back"><a class="back" href='userAppointment.php'>Buy</a></button>
     <?php
     if(isset($_SESSION['access_level'])){
         if($_SESSION['access_level']==1){?>
