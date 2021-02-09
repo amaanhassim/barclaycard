@@ -20,26 +20,35 @@ $stmt->execute($values);
 }
 else {
 
-    $content = ('<hr />
-    <h1>Register</h1>
+    $content = ('
     
-    <div class="addUser">
-    <form action="addUser.php" method="POST">
-        <label>Firstname</label>
-         <input name="firstname" type="text" />
+    <h1 style="text-align:center">Register</h1>
+    						
+<div class="login-container">
+        <div class="wrapper animated bounceInLeft">
+        
+            <div class="contact">
+               
+                <form method="POST" action="">
+                    <p>
+                        <label>First Name</label>
+                        <input type="text" name="firstname" required>
+                    </p>
+					<p>
+                        <label>Surname</label>
+                        <input type="text" name="surname" required>
+                    </p>
+					<p>
+                        <label>Email</label>
+						<input type="email" name="email" required>
+                    </p>                 						
+                    <p class="full">
+                        <button type="submit" name = "submit" >Submit</button>
+                    </p>
+                </form>
+            </div>
 
-        <label>Surname</label> 
-        <input name="surname" type="text" />
-
-        <label>Email</label> 
-        <input name="email" type="text" />
-
-        <label>Password</label> 
-        <input name="pass" type="password" />
-
-        <input name="submit" type="submit" value="Submit" />
-
-    </form>
+        </div>
     </div>');
 
     require '../templates/layout.html.php';

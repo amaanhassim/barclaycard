@@ -5,7 +5,7 @@
 		<font face="Times New Roman">
 			<h1 align="center">Payment Page</h1>
 			<p></p>
-			<form method="post" action="HPPAuthBillTo2.php" name=BaseForm>
+			<form  class="payment" method="post" action="HPPAuthBillTo2.php" name=BaseForm>
 				<table align="center">
 					<col width="180">
 					<col width="180">

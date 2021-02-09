@@ -2,10 +2,9 @@
 
 require '../functions/loadtemplate.php';
 require '../functions/amdbconnection.php';
-require '../../functions/db.php';
 session_start();
 
-$stmt = $pdo->prepare('SELECT * FROM products');
+$stmt = $pdo2->prepare('SELECT * FROM products');
 
 $stmt->execute();
 
@@ -13,7 +12,8 @@ $products = $stmt->fetchAll();
 
 $templatevars = [
     'products' => $products,
-    'location' => 'viewproduct.php'
+    'location' => 'editproduct.php',
+    'action' => 'Edit'
 ];
 
 $content = loadtemplate('../templates/listprod.html.php',$templatevars);
