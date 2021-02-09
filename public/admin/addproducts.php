@@ -6,20 +6,17 @@ session_start();
 
 if(isset($_POST['submit']))
 {
-    $stmt = $pdo->prepare('INSERT INTO products (productname,productprice,des,stock)
-                            VALUES(:productname, :productprice, :des, :stock)');
+    $stmt = $pdo2->prepare('INSERT INTO products (productname,productprice,des)
+                            VALUES(:productname, :productprice, :des)');
     
     $values = [
         'productname' => $_POST['productname'],
         'productprice' => $_POST['productprice'],
-        'des' => $_POST['des'],
-        'stock' => $_POST['stock']
+        'des' => $_POST['des']
     ];
-    // var_dump($values);
+    var_dump($values);
 
     $stmt->execute($values);
-
-    header('location: success.php');
 }
 
 $content = loadtemplate('../../templates/addproducts.html.php', []);

@@ -1,10 +1,10 @@
 <?php
 
 require '../../functions/loadtemplate.php';
-require '../../functions/db.php';
+require '../functions/db.php';
 session_start();
 
-$stmt = $pdo->prepare('SELECT * FROM products');
+$stmt = $pdo2->prepare('SELECT * FROM products');
 
 $stmt->execute();
 

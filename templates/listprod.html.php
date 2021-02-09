@@ -12,11 +12,7 @@
             <h2><?=$row['productname']?></h2>
             <p><?=$row['des']?></p>
             <p class="price">Price: £<?=$row['productprice']?></p>
-            <form action="<?=$location?>" method="POST">
-            <input type="hidden" name="id" value=<?=$row['id']?>>
-            <input class="more" type="submit" name="select" value="Select &gt;&gt;">
-            </form>
-            <!-- <a href="" class="more">More &gt;&gt;</a> -->
+            <a href="#" class="more">More &gt;&gt;</a>
         </article>
     </li>
 

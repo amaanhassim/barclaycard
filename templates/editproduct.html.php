@@ -1,17 +1,36 @@
-<hr />
-					<h1>Edit Product</h1>
+<h1 style="text-align:center;">Edit Product</h1>
+						
+						<div class="login-container">
+								<div class="wrapper animated bounceInLeft">
+									<div class="company-info">
+										<h3>Sherlock Comb</h3>
+										<ul>
+											<li><i class="fa fa-road"></i>44 Something St</li>
+											<li><i class="fa fa-phone"></i>555-555-5555</li>
+											<li><i class="fa fa-envelope"></i>sherlock@test.com</li>
+										</ul>
+									</div>
+									<div class="contact">
+									   
 
-					<form action="#" method="POST">
 
-						<label for="pri">Product Name:</label> <input id="pri" type="text" name="productname" value="<?=$pro['productname']?>" />
+					<form action="addproducts.php" method="POST">
 
-                        <label for="pr">Price:</label> <input id="pr" type="text" name="productprice"  value="<?=$pro['productprice']?>" />
+						<label>Product Name:</label><br> <input  type="text" name="productname"  value="<?=$pro['productprice']?>"/>
 
-						<label for="pr">Stock Amount:</label> <input id="pr" type="text" name="stock"  value="<?=$pro['stock']?>" />
+                        <label">Price:</label> <input  type="text" name="productprice" value="<?=$pro['productprice']?>" />
 
-						<label for="de">Description:</label> <input id="de" type="text" name="des"  value="<?=$pro['des']?>"/>
+						<label>Description:</label> 
+						<textarea name="des" id="" cols="30" rows="10"  value="<?=$pro['ds'];?>" </textarea>
 
-                        <input type="hidden" name="id" value=<?=$pro['id']?> />
-						<input type="submit" name="submit" value="submit" />
+						<!-- UNDEFINED INDEX-id -->
+						<!-- <input type="hidden" name="id" value="<?=$pro['id']?>"/> -->
 
+						<p class="full">
+                        <button type="submit" name = "submit" >Submit</button>
+                    </p>
 					</form>
+									</div>
+								</div>
+						</div>
+
