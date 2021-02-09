@@ -52,7 +52,7 @@ require '../functions/db.php';
 
 $content = '
     <form action="userAppointment.php" method="post">
-                    <label Name </label> <input type="text" name = "name"/>
+                    <label> Name </label> <input type="text" name = "name"/>
                     <label> location </labe> <select name = "location">
                     '. $location .'
                     </select>
