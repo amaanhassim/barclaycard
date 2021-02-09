@@ -28,7 +28,7 @@ require '../functions/db.php';
 
     $service = '';
     foreach($query4 as $data3){
-        $service = $service . '<option> <a href="' . $data3['service_name'] . '"> '. $data3['service_name'] .'</a></option>';
+        $service = $service . '<option> <a href="' . $data3['service_name'] . '"> '. $data3['service_name'] . $data3['service_price'] . '</a></option>';
     }
 
     if (isset($_POST['submit'])) {
