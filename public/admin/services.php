@@ -40,4 +40,4 @@ require '../../functions/loadtemplate.php';
 
 $content = loadtemplate('../../templates/services.html.php',['services' => $services]);
 
-require '../../templates/layout.html.php';
+require '../../templates/adminlayout.html.php';
