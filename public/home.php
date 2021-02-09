@@ -1,6 +1,7 @@
 <?php 
 session_start();
-require '../templates/layout2.html.php';
+require '../templates/header.php';
+require '../templates/layout.php';
 
 
 
