@@ -2,11 +2,11 @@
 session_start(); 
 require '../functions/db.php';
 
-if (isset($_SESSION['access_level'])){
-    if(isset($_POST['service'])){
-		$service = $pdo->prepare('SELECT * FROM services WHERE id=:id');
-    	$service->execute(['id'=>$_POST['service']]);
-		$service=$service->fetch();
+//if (isset($_SESSION['access_level' == 0 ])){
+    if (isset($_POST['service'])) {
+        $service = $pdo->prepare('SELECT * FROM services WHERE id=:id');
+        $service->execute(['id'=>$_POST['service']]);
+        $service=$service->fetch();
         $content = '
         <form action="checkout.php" method="post">
         <table align="center">
@@ -91,7 +91,7 @@ if (isset($_SESSION['access_level'])){
 							Firstname
 						</td>
 						<td>
-							<input type="text" name="bill_to_forename" placeholder="Name">
+							<input type="text" name="bill_to_forename" placeholder="Name" value="'.$_POST['name'].'">
 						</td>
 					</tr>
 					
@@ -152,7 +152,7 @@ if (isset($_SESSION['access_level'])){
 					</tr>	
 				</table>
     
-                    <input type="hidden" name = "name" value="'.$_POST['name'].'"/>
+                    
                     <input type="hidden" name = "location" value="'.$_POST['location'].'"/>
                     <input type="hidden" name = "timeSlot" value="'.$_POST['timeSlot'].'"/>                 </select>
                     <input type="hidden" name = "service" value="'.$_POST['service'].'">
@@ -160,7 +160,6 @@ if (isset($_SESSION['access_level'])){
                 </form>
 
 ';
-   require '../templates/layout.html.php';
     }
     $query1 = $pdo->prepare('SELECT * FROM users');
     $query1->execute();
@@ -184,39 +183,71 @@ if (isset($_SESSION['access_level'])){
 
     $query4 = $pdo->prepare('SELECT * FROM services');
     $query4->execute();
+    $products = $query4->fetchAll();
 
     $service = '';
-    foreach($query4 as $data3){
-        $service = $service . '<option value="'.$data3['id'].'"> <a href="' . $data3['service_name'] . '"> '. $data3['service_name'] .'</a></option>';
+    foreach($products as $data3){
+        $service = $service . '<option> <a href="' . $data3['id'] . '"> '. $data3['service_name'] . '</a></option>';
     }
 
-    
+    $service2 = '';
+    foreach($products as $data3){
+        $service2 = $service2 . '<li> <a>'. $data3['service_name'] . ' £' . $data3['service_price'] . '</a></li>';
+    }
+
+    if (isset($_POST['submit'])) {
+        $appointment = $pdo->prepare('INSERT INTO appointments (name, time, location, service) VALUES (:name, :time, :location, :service ) ');
+        
+        $values1 = [
+            'name' => $_POST['name'],
+            'location' => $_POST['location'],
+            'time' => $_POST['timeSlot'],
+            'service' => $_POST['service']
+        ];
+        $appointment->execute($values1);
+        
+        $time = $pdo->prepare('UPDATE timeSlots SET avalible = "1" WHERE time = :time');
+        $values2 = [
+            'time' => $_POST['timeSlot']
+        ];
+        $time->execute($values2);
+        header("location:checkout.php");
+    }
 
 $content = '
+<article>
     <form action="userAppointment.php" method="post">
                     <label> Name </label> <input type="text" name = "name"/>
-                    <label> location </label> <select name = "location">
+                    <label> Location </labe> <select name = "location">
                     '. $location .'
                     </select>
-                    <label> Time </label> <select name = "timeSlot">
+                    <label> Time </labe> <select name = "timeSlot">
                     '. $time .'
                     </select>
                     <label> Service Required </label> <select name = "service">
-                    '. $service .'</select>
+                    '. $service .'
+                    </select>
                     <input type="submit" name="submit" value="Submit" style="margin-left: 0px"/>
                 </form>
-
+</artcile>
+<article>
+    <form>
+        <ul>
+            '. $service2 .'
+        </ul>
+    </form>
+</article>
 ';
    require '../templates/layout.html.php';
 
 
 
-
+/*
 }
 else{
     $content = '
     <h3> Please Login or register to Book a Appointment </h3>
 ';
 require '../templates/layout.html.php';
-}
+}*/
 ?>
