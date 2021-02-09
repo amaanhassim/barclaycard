@@ -186,43 +186,15 @@ if (isset($_SESSION['access_level'])){
 
     $service = '';
     foreach($query4 as $data3){
-<<<<<<< HEAD
         $service = $service . '<option value="'.$data3['id'].'"> <a href="' . $data3['service_name'] . '"> '. $data3['service_name'] .'</a></option>';
     }
 
     
-=======
-        $service = $service . '<option> <a href="' . $data3['service_name'] . '"> '. $data3['service_name'] . $data3['service_price'] . '</a></option>';
-    }
-
-    if (isset($_POST['submit'])) {
-        $appointment = $pdo->prepare('INSERT INTO appointments (name, time, location, service) VALUES (:name, :time, :location, :service ) ');
-        
-        $values1 = [
-            'name' => $_POST['name'],
-            'location' => $_POST['location'],
-            'time' => $_POST['timeSlot'],
-            'service' => $_POST['service']
-        ];
-        $appointment->execute($values1);
-        
-        $time = $pdo->prepare('UPDATE timeSlot SET avalible == "1" WHERE time = :time');
-        $values2 = [
-            'time' => $_POST['timeSlot']
-        ];
-        $time->execute($values2);
-        header("location:checkout.php");
-    }
->>>>>>> 9a1bd867b3a4ef3f85c5e551341d39d55b782234
 
 $content = '
     <form action="userAppointment.php" method="post">
                     <label> Name </label> <input type="text" name = "name"/>
-<<<<<<< HEAD
                     <label> location </label> <select name = "location">
-=======
-                    <label> location </labe> <select name = "location">
->>>>>>> 9a1bd867b3a4ef3f85c5e551341d39d55b782234
                     '. $location .'
                     </select>
                     <label> Time </label> <select name = "timeSlot">
