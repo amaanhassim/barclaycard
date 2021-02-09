@@ -47,6 +47,7 @@ require '../functions/db.php';
             'time' => $_POST['timeSlot']
         ];
         $time->execute($values2);
+        header("location:checkout.php");
     }
 
 $content = '
