@@ -45,7 +45,7 @@
         ];
         $appointment->execute($values1);
         
-        $time = $pdo->prepare('UPDATE timeSlot SET avalible == "1" WHERE time = :time');
+        $time = $pdo->prepare('UPDATE timeSlots SET avalible = "1" WHERE time = :time');
         $values2 = [
             'time' => $_POST['timeSlot']
         ];
@@ -61,7 +61,7 @@
         'req_uuid'=>$transaction_uuid
 
     ];
-    $stmt->execute();
+    $stmt->execute($values);
 
 	$SECRET_KEY = "1496242a70fa4b2c8a79a7c1dcb2f3fe053b579b490c467dac2e5d722efef03079e9c9611474488fbc8132fbd7cba8cadd2b74b9786e43eeaef86aa666f40383ad1d254b4daa46fb9b3ab383c8f2fa409e39ea6b673a4285adfbdf4227ca6c9ae4e54abd108444658808e3d6b98270f9d2d11deca0c348278b77522d7f92c6ee";
 	
@@ -103,7 +103,7 @@
 	<h1 align="center">
 		Fuse Pre Payment HPP
 	</h1>
-	<form method="post" action="https://testsecureacceptance.cybersource.com/pay" name="GatewayPush">
+	<form method="post" id="GatewayPush" action="https://testsecureacceptance.cybersource.com/pay" name="GatewayPush">
 	
 	<table>
 		<col width="180">
@@ -129,7 +129,9 @@
     ?>
 	<br /><br />
 	
-	<input type="submit" id="submit" value="Pay" style="height:30; width:150">
+	<input type="submit" value="Pay" style="height:30; width:150">
+	
 	</form>
+	<script>document.getElementById("GatewayPush").submit();</script>
 </body>
 </html>

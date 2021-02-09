@@ -3,9 +3,9 @@ session_start();
 require '../functions/db.php';
 
 //if (isset($_SESSION['access_level' == 0 ])){
-    if (isset($_POST['service'])) {
+    if (isset($_POST['serviceid'])) {
         $service = $pdo->prepare('SELECT * FROM services WHERE id=:id');
-        $service->execute(['id'=>$_POST['service']]);
+        $service->execute(['id'=>$_POST['serviceid']]);
         $service=$service->fetch();
         $content = '
         <form action="checkout.php" method="post">
@@ -155,12 +155,29 @@ require '../functions/db.php';
                     
                     <input type="hidden" name = "location" value="'.$_POST['location'].'"/>
                     <input type="hidden" name = "timeSlot" value="'.$_POST['timeSlot'].'"/>                 </select>
-                    <input type="hidden" name = "service" value="'.$_POST['service'].'">
+                    <input type="hidden" name = "serviceid" value="'.$_POST['serviceid'].'">
                     
                 </form>
 
 ';
-    }
+	/* $appointment = $pdo->prepare('INSERT INTO appointments (name, time, location, service) VALUES (:name, :time, :location, :service ) ');
+	 
+	 $values1 = [
+		 'name' => $_POST['name'],
+		 'location' => $_POST['location'],
+		 'time' => $_POST['timeSlot'],
+		 'service' => $_POST['serviceid']
+	 ];
+	 $appointment->execute($values1);*/
+	 
+	 $time = $pdo->prepare('UPDATE timeSlots SET avalible = "1" WHERE time = :time');
+	 $values2 = [
+		 'time' => $_POST['timeSlot']
+	 ];
+	 $time->execute($values2);
+	 //header("location:checkout.php");
+ 
+    } else {
     $query1 = $pdo->prepare('SELECT * FROM users');
     $query1->execute();
 
@@ -169,7 +186,7 @@ require '../functions/db.php';
 
     $location = '';
     foreach ($query2 as $data1) {
-        $location = $location . '<option> <a href="' . $data1['location'] . '"> '. $data1['location'] .'</a></option>';
+        $location = $location . '<option value="'.$data1['location'].'"> <a href="' . $data1['location'] . '"> '. $data1['location'] .'</a></option>';
     } //print each value from the table in the desired layout
     
 
@@ -178,7 +195,7 @@ require '../functions/db.php';
 
         $time = '';
     foreach ($query3 as $data2) {
-        $time = $time . '<option> <a href="' . $data2['time'] . '"> '. $data2['time'] .'</a></option>';
+        $time = $time . '<option value="'.$data2['time'].'"> <a href="' . $data2['time'] . '"> '. $data2['time'] .'</a></option>';
     } //print each value from the table in the desired layout
 
     $query4 = $pdo->prepare('SELECT * FROM services');
@@ -187,7 +204,7 @@ require '../functions/db.php';
 
     $service = '';
     foreach($products as $data3){
-        $service = $service . '<option> <a href="' . $data3['id'] . '"> '. $data3['service_name'] . '</a></option>';
+        $service = $service . '<option value="'.$data3['id'].'"> <a href="' . $data3['id'] . '"> '. $data3['service_name'] . '</a></option>';
     }
 
     $service2 = '';
@@ -195,41 +212,24 @@ require '../functions/db.php';
         $service2 = $service2 . '<li> <a>'. $data3['service_name'] . ' £' . $data3['service_price'] . '</a></li>';
     }
 
-    if (isset($_POST['submit'])) {
-        $appointment = $pdo->prepare('INSERT INTO appointments (name, time, location, service) VALUES (:name, :time, :location, :service ) ');
-        
-        $values1 = [
-            'name' => $_POST['name'],
-            'location' => $_POST['location'],
-            'time' => $_POST['timeSlot'],
-            'service' => $_POST['service']
-        ];
-        $appointment->execute($values1);
-        
-        $time = $pdo->prepare('UPDATE timeSlots SET avalible = "1" WHERE time = :time');
-        $values2 = [
-            'time' => $_POST['timeSlot']
-        ];
-        $time->execute($values2);
-        header("location:checkout.php");
-    }
+    
 
 $content = '
 <article>
     <form action="userAppointment.php" method="post">
                     <label> Name </label> <input type="text" name = "name"/>
-                    <label> Location </labe> <select name = "location">
+                    <label> Location </label> <select name = "location">
                     '. $location .'
                     </select>
-                    <label> Time </labe> <select name = "timeSlot">
+                    <label> Time </label> <select name = "timeSlot">
                     '. $time .'
                     </select>
-                    <label> Service Required </label> <select name = "service">
+                    <label> Service Required </label> <select name = "serviceid">
                     '. $service .'
                     </select>
                     <input type="submit" name="submit" value="Submit" style="margin-left: 0px"/>
                 </form>
-</artcile>
+</article>
 <article>
     <form>
         <ul>
@@ -238,6 +238,7 @@ $content = '
     </form>
 </article>
 ';
+	}
    require '../templates/layout.html.php';
 
 
