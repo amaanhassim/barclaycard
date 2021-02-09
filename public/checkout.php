@@ -37,7 +37,7 @@
 		$appointment = $pdo->prepare('INSERT INTO appointments (name, time, location, service, transaction) VALUES (:name, :time, :location, :service, :transaction_uuid ) ');
         
         $values1 = [
-            'name' => $_POST['name'],
+            'name' => $bill_to_forename,
             'location' => $_POST['location'],
             'time' => $_POST['timeSlot'],
             'service' => $_POST['serviceid'],
