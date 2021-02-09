@@ -48,7 +48,6 @@ if ( $stm -> rowCount() > 0 ) {
     <div class="nav">
       <ul class"links">
         <li class="signin-active"><a class="btn">Log in</a></li>
-        <a href=""></a>
         <img class="logo" src="/logosherlock2.png" alt="">
       </ul>
     </div>
@@ -58,11 +57,18 @@ if ( $stm -> rowCount() > 0 ) {
           <input class="form-styling" type="text" name="email" placeholder=""/>
           <label for="password">Password</label>
           <input class="form-styling" type="text" name="pass" placeholder=""/>
-          <input class="btn-signin btn-animate" type="submit" name="submit">
+          <input class="btn-signin btn-animate" type="submit" name="submit" value="Sign In">
           </input>
+        
           </form>
+          <label>Log in to view products or book an appointment</label>
   </div>
+  
+
 	</form> 
+    <footer>
+	&copy; ibuy 2019
+	</footer>
     </body>
 </html>
 <?php }
