@@ -23,7 +23,7 @@
 
 
 			<footer>
-				&copy; ibuy 2019
+				&copy; Shear-Locks Combs 2021
 			</footer>
 		</main>
 	</body>
