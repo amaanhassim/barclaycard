@@ -17,6 +17,7 @@ $values = [
 // which will restrict theyr permission while logged in on the page ( access_level 1 = admin, 0 = user)
 if ( $stm -> rowCount() > 0 ) {
  	$_SESSION['access_level'] = $check_log['access_level'];
+ 	$_SESSION['userid'] = $check_log['idusers'];
  	$_SESSION ['name'] = $check_log['firstname'];
 	//if the details entered match the ones in the database take the user to the index page / home page
 	header('Location:https://barclaycard.v.je/userAppointment.php');

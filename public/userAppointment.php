@@ -4,6 +4,9 @@ require '../functions/db.php';
 
 if (isset($_SESSION['access_level'])){
     if(isset($_POST['service'])){
+		$service = $pdo->prepare('SELECT * FROM services WHERE id=:id');
+    	$service->execute(['id'=>$_POST['service']]);
+		$service=$service->fetch();
         $content = '
         <form action="checkout.php" method="post">
         <table align="center">
@@ -145,9 +148,7 @@ if (isset($_SESSION['access_level'])){
 						<td align="center">
 							<input type="submit" value="Pay" style="height:30; width:150">
 						</td>
-						<td align="center">
-							<input type="button" value="Reset" style="height:30; width:150" onclick="resetFunction()">
-						</td>
+						
 					</tr>	
 				</table>
     
@@ -155,7 +156,7 @@ if (isset($_SESSION['access_level'])){
                     <input type="hidden" name = "location" value="'.$_POST['location'].'"/>
                     <input type="hidden" name = "timeSlot" value="'.$_POST['timeSlot'].'"/>                 </select>
                     <input type="hidden" name = "service" value="'.$_POST['service'].'">
-                    <input type="submit" name="submit" value="Submit" style="margin-left: 0px"/>
+                    
                 </form>
 
 ';
