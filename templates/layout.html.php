@@ -18,10 +18,15 @@
 
 		<nav>
 			<ul>
-                <li><a href="index.php">Product List</a></li>
-                <li><a href="productpage.php">Product Page</a></li>
-                <li><a href="sampleform.php">Sample Form</a></li>
-
+                <li><a href="index.php">Home</a></li>
+                <li><a href="products.php">Products</a></li>
+                <li><a href="services.php">Services</a></li>
+				<?php 
+				if(isset($_SESSION['access_level'])){
+				 echo '<li><a href="/logout.php">Logout</a></li>';
+				} else {
+					echo '<li><a href="/login.php">Login</a></li>';
+				}?>
 				<!-- <li><a href="#">Home &amp; Garden</a></li>
 				<li><a href="#">Electronics</a></li>
 				<li><a href="#">Fashion</a></li>
