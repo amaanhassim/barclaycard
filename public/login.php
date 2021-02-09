@@ -37,17 +37,18 @@ if ( $stm -> rowCount() > 0 ) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
     <script src="./login.js" async></script>
-    <title>Document</title>
+    <title>Sherlock Comb</title>
 </head>
 <body>
     
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-
+<div class="ttl"><h1>Sherlock Comb</h1></div>
 <div class="container">
   <div class="frame">
     <div class="nav">
       <ul class"links">
         <li class="signin-active"><a class="btn">Log in</a></li>
+        <a href=""></a>
         <img class="logo" src="/logosherlock2.png" alt="">
       </ul>
     </div>
@@ -57,10 +58,8 @@ if ( $stm -> rowCount() > 0 ) {
           <input class="form-styling" type="text" name="email" placeholder=""/>
           <label for="password">Password</label>
           <input class="form-styling" type="text" name="pass" placeholder=""/>
-   
-          <div class="btn-animate">
-          <input class="btn-signin" type="submit" name="submit" value="Log in"/>
-          </div>
+          <input class="btn-signin btn-animate" type="submit" name="submit">
+          </input>
           </form>
   </div>
 	</form> 
