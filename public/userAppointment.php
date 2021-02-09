@@ -1,3 +1,4 @@
+<?php
 session_start(); 
 require '../functions/db.php';
 
@@ -32,21 +33,21 @@ require '../functions/db.php';
     if (isset($_POST['submit'])) {
         $appointment = $pdo->prepare('INSERT INTO appointments (name, time, location, service) VALUES (:name, :time, :location, :service ) ');
 
-$values1 = [
+        $values1 = [
     'name' => $_POST['name'],
     'location' => $_POST['location'],
     'time' => $_POST['timeSlot'],
     'service' => $_POST['service']
 ];
-$appointment->execute($values1);
+        $appointment->execute($values1);
 
-$time = $pdo->prepare('UPDATE timeSlot SET avalible == "1" WHERE time = :time');
-$values2 = [
+        $time = $pdo->prepare('UPDATE timeSlot SET avalible == "1" WHERE time = :time');
+        $values2 = [
     'time' => $_POST['timeSlot']
 ];
-$time->execute($values2);
+        $time->execute($values2);
 
-$content = '
+        $content = '
     <form action="userAppointment.php" method="post">
                     <label Name </label> <input type="text" name = "name"/>
                     <label> location </labe> <select name = "location">
@@ -60,15 +61,7 @@ $content = '
                     <input type="submit" name="submit" value="Submit" style="margin-left: 0px"/>
                 </form>
 ';
-require '../templates/layout.html.php';
-
+        require '../templates/layout.html.php';
+    //}
 
 ?>
-/*
-}
-else{
-    $content = '
-    <h3> Please Login or register to Book a Appointment </h3>
-';
-require '../templates/layout.html.php';
-}*/
