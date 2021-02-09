@@ -8,7 +8,7 @@
  $stm = $pdo -> prepare ('SELECT * FROM users WHERE email = :email AND pass = :pass');
 $values = [
 'email' => $_POST['email'],
- 'pass' => $_POST['pass'],
+ 'pass' => $_POST['pass']
 ];
  $stm -> execute($values);
 
@@ -28,13 +28,43 @@ if ( $stm -> rowCount() > 0 ) {
 	
 } else {
 ?>
- <h2>Log in</h1>
-	<form action="login.php" method="POST">
-		<label>Email </label> <input type="text" name="email" />
-		<label>Password </label> <input type="password" name="pass"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <script src="./login.js" async></script>
+    <title>Document</title>
+</head>
+<body>
+    
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
-		<input type="submit" name="submit" value="Log in"/>
+<div class="container">
+  <div class="frame">
+    <div class="nav">
+      <ul class"links">
+        <li class="signin-active"><a class="btn">Log in</a></li>
+        <img class="logo" src="/logosherlock2.png" alt="">
+      </ul>
+    </div>
+     
+                <form class="form-signin" action="" method="post" name="form">
+          <label for="username">Username</label>
+          <input class="form-styling" type="text" name="email" placeholder=""/>
+          <label for="password">Password</label>
+          <input class="form-styling" type="text" name="pass" placeholder=""/>
+   
+          <div class="btn-animate">
+          <input class="btn-signin" type="submit" name="submit" value="Log in"/>
+          </div>
+          </form>
+  </div>
 	</form> 
+    </body>
+</html>
 <?php }
 
 
