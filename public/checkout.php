@@ -23,15 +23,35 @@
 	$bill_to_forename = $_POST['bill_to_forename'];
 	$bill_to_surname = $_POST['bill_to_surname'];
 
+
+
+	include('../functions/db.php');
     $productid=null;
     $serviceid=null;
     $userid=$_SESSION['userid'];
     if(isset($_POST['productid'])){
         $productid = $_POST['productid'];
-    elseif(isset($_POST['serviceid'])){
+	}elseif(isset($_POST['serviceid'])){
         $serviceid = $_POST['serviceid'];
+
+		$appointment = $pdo->prepare('INSERT INTO appointments (name, time, location, service, transaction) VALUES (:name, :time, :location, :service, :transaction_uuid ) ');
+        
+        $values1 = [
+            'name' => $_POST['name'],
+            'location' => $_POST['location'],
+            'time' => $_POST['timeSlot'],
+            'service' => $_POST['serviceid'],
+			'transaction_uuid' => $transaction_uuid
+        ];
+        $appointment->execute($values1);
+        
+        $time = $pdo->prepare('UPDATE timeSlot SET avalible == "1" WHERE time = :time');
+        $values2 = [
+            'time' => $_POST['timeSlot']
+        ];
+        $time->execute($values2);
     }
-    include('../functions/db.php')
+    
     $stmt = $pdo->prepare('INSERT INTO transactions (uid, productid, serviceid, decision, req_transaction_uuid) VALUES (:uid, :pid, :sid, :decision, :req_uuid)');
     $values = [
         'uid'=>$userid,
