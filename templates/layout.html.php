@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ibuy Auctions</title>
+		<title></title>
 		 <meta charset="UTF-8" />
 		<link rel="stylesheet" href="/ibuy.css" />
 	</head>
@@ -43,7 +43,7 @@
 
 
 			<footer>
-				&copy; ibuy 2019
+				&copy; 
 			</footer>
 		</main>
 	</body>
