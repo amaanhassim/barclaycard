@@ -204,20 +204,17 @@ require '../functions/db.php';
 
     $service = '';
     foreach($products as $data3){
-        $service = $service . '<option value="'.$data3['id'].'"> <a href="' . $data3['id'] . '"> '. $data3['service_name'] . '</a></option>';
+        $service = $service . '<option value="'.$data3['id'].'"> <a href="' . $data3['id'] . '"> '. $data3['service_name'] .  ' £' . $data3['service_price'] . '</a></option>';
     }
-
-    $service2 = '';
-    foreach($products as $data3){
-        $service2 = $service2 . '<li> <a>'. $data3['service_name'] . ' £' . $data3['service_price'] . '</a></li>';
-    }
+	
 
     
 
 $content = '
 <article>
     <form action="userAppointment.php" method="post">
-                    <label> Name </label> <input type="text" name = "name"/>
+					<label> Firstname </label> <input type="text"/>
+                    <label> Surname </label> <input type="text" name = "name"/>
                     <label> Location </label> <select name = "location">
                     '. $location .'
                     </select>
@@ -230,13 +227,7 @@ $content = '
                     <input type="submit" name="submit" value="Submit" style="margin-left: 0px"/>
                 </form>
 </article>
-<article>
-    <form>
-        <ul>
-            '. $service2 .'
-        </ul>
-    </form>
-</article>
+
 ';
 	}
    require '../templates/layout.html.php';
