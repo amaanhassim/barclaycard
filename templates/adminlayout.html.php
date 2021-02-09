@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ibuy Auctions</title>
+		<title>Shear-Locks Combs</title>
 		 <meta charset="UTF-8" />
 		<link rel="stylesheet" href="/ibuy.css" />
 	</head>
@@ -45,7 +45,7 @@
 
 
 			<footer>
-				&copy; ibuy 2019
+				&copy; Shear-Locks Combs 2021
 			</footer>
 		</main>
 	</body>
