@@ -7,7 +7,7 @@ $services->execute();
 <?php
 require '../functions/loadtemplate.php';
 
-$content = loadtemplate('../templates/services.html.php',['services' => $services]);
+$content = loadtemplate('../templates/services2.html.php',['services' => $services]);
 
 require '../templates/layout.html.php';
 
