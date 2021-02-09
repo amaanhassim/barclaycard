@@ -56,7 +56,7 @@ if ( $stm -> rowCount() > 0 ) {
           <label for="username">Username</label>
           <input class="form-styling" type="text" name="email" placeholder=""/>
           <label for="password">Password</label>
-          <input class="form-styling" type="text" name="pass" placeholder=""/>
+          <input class="form-styling" type="password" name="pass" placeholder=""/>
           <input class="btn-signin btn-animate" type="submit" name="submit" value="Sign In">
           </input>
         
@@ -67,7 +67,7 @@ if ( $stm -> rowCount() > 0 ) {
 
 	</form> 
     <footer>
-	&copy; ibuy 2019
+	&copy; Sherlock Comb 2021
 	</footer>
     </body>
 </html>
